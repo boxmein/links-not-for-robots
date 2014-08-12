@@ -55,7 +55,7 @@ app.post('/l/:link', function(req, res) {
       try {
         var decr = crypto.createDecipher('aes192', 
                    new Buffer(private_data.link_private_key));
-        var link = decr.update(req.params.link, 'base64', 'utf-8') + decr.final('utf-8');
+        var link = decr.update(req.params.link, 'hex', 'utf-8') + decr.final('utf-8');
         res.render('link-ok.jade', {
           'link': link
         });
@@ -116,7 +116,7 @@ app.post('/make', function(req, res) {
       // Encrypt
       var encr = crypto.createCipher('aes192', 
         new Buffer(private_data.link_private_key));
-      var encrypted = encr.update(link, 'utf-8', 'base64') + encr.final('base64');
+      var encrypted = encr.update(link, 'utf-8', 'hex') + encr.final('hex');
 
       res.render('make-result.jade', {
         'encrypted': encrypted
