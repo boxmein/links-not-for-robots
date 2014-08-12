@@ -5,7 +5,7 @@ website to block robots from entering!
 
 oh, and as an extra, links will work forever, since link data is literally kept
 inside the URL (except it's encrypted with symmetrical magic, so only this site 
-can decipher it, unless you can get to the private key... >:)
+can decipher it, unless you can get to the private key... :\^)
 
 therefore, this does not serve as an URL shortener, rather an URL obfuscator. 
 
@@ -44,4 +44,4 @@ Running this program is simple:
 ## More help
 
 Have questions? Found a bug? Mail me at wsdf294@gmail.com, or simply leave an issue 
-in the issue tracker.
+in the [issue tracker](https://github.com/boxmein/links-not-for-robots/issues).
