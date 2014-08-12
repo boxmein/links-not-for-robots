@@ -7,3 +7,15 @@
   max-width: 300px;
   word-wrap: break-word;
 }
+
+.shorteners {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  li {
+    &:before {
+      content: "- ";
+    }
+    padding-left: 0px;
+  }
+}

@@ -95,3 +95,12 @@ input.error {
 .hugelink {
   max-width: 300px;
   word-wrap: break-word; }
+
+.shorteners {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
+  .shorteners li {
+    padding-left: 0px; }
+    .shorteners li:before {
+      content: "- "; }
