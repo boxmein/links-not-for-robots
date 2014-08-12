@@ -5,3 +5,10 @@ block main
   h1 you're done!
   p the link is accessible below:
   a.hugelink(href='/l/#{encrypted}')= encrypted
+
+  p.
+    optionally, you can click one of the links below to shorten your url for 
+    convenience's sake: 
+  ul.shorteners
+    li: a.shortener(href='http://v.gd/create.php?url='+encodeURIComponent("http://boxmein.net/l/"+encrypted)) v.gd
+    li: a.shortener(href='http://is.gd/create.php?url='+encodeURIComponent("http://boxmein.net/l/"+encrypted)) is.gd
