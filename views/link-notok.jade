@@ -1,0 +1,7 @@
+extends base
+block main
+  h1 Not so fast!
+  p Check out this CAPTCHA first!
+  form(method='post')
+    != recaptcha_form
+    input(type='submit', value='get the link')

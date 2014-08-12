@@ -1,0 +1,8 @@
+extends base
+block main
+  h1 make a captcha link
+  form(method='post')
+    label(for='link') link (limit 500 characters):
+    input(name='link', type='text', placeholder='link goes here')
+    !=captcha
+    input(type='submit', value='get link')
