@@ -1,0 +1,12 @@
+// globals
+//# echo don't compile this separately!
+
+$text: lighten(black, 10%);
+$font: 'Open Sans', sans-serif;
+$background: #EFEFEF;
+$accent: $text;
+$accent_text: $background;
+
+$error_bg: saturate(lighten(#f69988, 20%), 20%);
+$error_text: #b0120a;
+$error_border: #e51c23;

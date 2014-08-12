@@ -1,0 +1,92 @@
+//
+//# sass make.scss make.css
+
+@import "base";
+
+label.link {
+  display: none;
+  @media print, speech {
+    display: inline;
+  }
+}
+
+input.link {
+  display: block;
+  width: 600px;
+  padding: 10px;
+
+  margin-bottom: 2em;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input.submit {
+  width: 600px;
+  
+  background: $accent;
+  color: $accent_text;
+
+  font-size: 1.2em;
+  border: none;
+
+  padding: 10px;
+  margin-top: 2em;
+  
+  &:hover {
+    background: lighten($accent, 3%);
+  }
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  -webkit-transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+  -moz-transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+  -ms-transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+  -o-transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+  transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+}
+
+label.captcha {
+  display: block;
+  padding-left: 10px;
+  font-size: 0.9em;
+}
+
+// we all make mistakes
+div.error {
+  p { margin: 0; }
+
+  background: $error_bg;
+  color: $error_text;
+
+  padding: 5px;
+  font-size: 0.9em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input.error {
+  border: 1px solid $error_border;
+  background-color: $error_bg;
+  color: $error_text;
+}
+
+// ReCAPTCHA styling
+.recaptchatable {
+  width: 600px;
+}
+
+#recaptcha_response_field {
+  padding: 2px;
+}
+
+#recaptcha_privacy {
+  font-size: 0.7em;
+}

@@ -1,0 +1,16 @@
+//
+//# sass index.scss index.css 
+@import "base";
+@import "globals";
+
+// Content stuff
+main {
+  h1 {
+    text-align: center;
+  }
+}
+
+pre {
+  padding: 5px;
+  background-color: darken($background, 3%);
+}

@@ -1,0 +1,44 @@
+//
+//# echo don't compile! include this!
+// include in other scripts as necessary
+
+@import "globals";
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  max-width: 600px;
+  margin: 7% auto;
+}
+
+// Navigation bar
+nav {
+  display: block;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  a {
+    display: inline-block;
+    margin: 15px;
+    padding: 5px;
+
+    color: inherit;
+    text-decoration: none;
+
+    font-size: 0.9em;
+
+    -webkit-transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+    -moz-transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+    -ms-transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+    -o-transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+    transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+
+    &.active {
+      color: $accent_text;
+      background-color: $accent;
+    }
+
+    &:hover {
+      background-color: darken($background, 10%);
+    }
+  }
+}
