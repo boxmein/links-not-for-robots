@@ -4,13 +4,11 @@ var express = require('express')
   , path    = require('path')
   , logfmt  = require('logfmt')
   , bodyparser = require('body-parser')
-  , Blowfish = require('blowfish')
+  , crypto = require('crypto')
   , Recaptcha = require('recaptcha').Recaptcha
   , private_data = require('./PRIVATE_DATA.json');;
 
 var app = express();
-
-var bf = new Blowfish(private_data.link_private_key);
 // App configuration
 
 app.set('port', process.env.PORT || 3000);
@@ -47,30 +45,28 @@ app.post('/l/:link', function(req, res) {
     challenge: req.body.recaptcha_challenge_field,
     response:  req.body.recaptcha_response_field
   };
-  
-  try {
-    var link = bf.decrypt(req.params.link);
-  }
-  catch (err) {
-    res.render('err.jade', { 
-      'errname': err.name 
-    });
-  }
+
   // Check the reCAPTCHA for validity, send the page if ok
   var rc = new Recaptcha(private_data.recaptcha_public_key, 
-                                private_data.recaptcha_private_key, data);
+                         private_data.recaptcha_private_key, data);
 
   rc.verify(function(success, error_code) {
     if (success) {
-      res.render('link-ok.jade', {
-        'link': link
-      });
+      try {
+        var decr = crypto.createDecipher('aes192', 
+                   new Buffer(private_data.link_private_key));
+        var link = decr.update(req.params.link, 'base64', 'utf-8') + decr.final('utf-8');
+        res.render('link-ok.jade', {
+          'link': link
+        });
+      }
+      catch (err) {
+        console.log(err.stack);
+        res.redirect('/l/'+req.params.link+'?err=decrypt');
+      }
     }
     else {
-      // Redisplay the form.
-      res.render('link-notok.jade', {
-        'recaptcha_form': rc.toHTML()
-      });
+      res.redirect('/l/'+req.params.link+'?err=captcha_fail');
     }
   });
 
@@ -115,12 +111,17 @@ app.post('/make', function(req, res) {
     // Otherwise, ask them for the link and captcha again!
 
     if (success) {
+
       var link = req.body.link; 
-      var encrypted = bf.encrypt(link);
+      // Encrypt
+      var encr = crypto.createCipher('aes192', 
+        new Buffer(private_data.link_private_key));
+      var encrypted = encr.update(link, 'utf-8', 'base64') + encr.final('base64');
 
       res.render('make-result.jade', {
         'encrypted': encrypted
       });
+
     } else {
       res.redirect('/make?err=captcha_fail');
     }
