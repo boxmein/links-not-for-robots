@@ -3,8 +3,30 @@ block append head
   link(rel='stylesheet', href='/css/make.css')
 block main
   h1 make a captcha link
+  if err
+    .error
+      p
+        | <b>error:</b> 
+        if err == 'captcha_empty'
+          | the captcha form field was left unfilled!
+        else if err == 'captcha_fail'
+          | the captcha control failed, you might be a robot!
+        else if err == 'empty'
+          | the link field was left unfilled!
+        else
+          | i don't have text for it, but here's the error anyway: #{err}
   form(method='post')
-    label(for='link') link (limit 500 characters):
-    input(name='link', type='text', placeholder='link goes here')
+
+    label.link(for='link') link:
+    input.link(name='link'
+               class= err == 'empty' ? 'error' : '' 
+               type='text'
+               placeholder='link goes here')
+    
+    label.captcha(for='recaptcha_response_field') also, fill out the captcha below:
+    script(type='text/javascript').
+      var RecaptchaOptions = {
+        theme: 'clean'
+      };
     !=captcha
-    input(type='submit', value='get link')
+    input.submit(type='submit', value='get link')
