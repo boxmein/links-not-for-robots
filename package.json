@@ -11,7 +11,9 @@
   "dependencies": {
     "blowfish": "^1.0.1",
     "body-parser": "^1.6.3",
+    "express": "^4.8.3",
     "logfmt": "^1.1.2",
-    "marked": "^0.3.2"
+    "marked": "^0.3.2",
+    "recaptcha": "^1.2.0"
   }
 }
