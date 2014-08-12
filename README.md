@@ -43,5 +43,5 @@ Running this program is simple:
 
 ## More help
 
-Have questions? Found a bug? Mail me at wsdf294@gmail.com, or simply leave an issue 
+Have questions? Found a bug? Mail me at boxmein@boxmein.net, or simply leave an issue 
 in the [issue tracker](https://github.com/boxmein/links-not-for-robots/issues).
