@@ -1,0 +1,97 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  max-width: 600px;
+  margin: 7% auto; }
+
+nav {
+  display: block;
+  position: absolute;
+  right: 15px;
+  top: 15px; }
+  nav a {
+    display: inline-block;
+    margin: 15px;
+    padding: 5px;
+    color: inherit;
+    text-decoration: none;
+    font-size: 0.9em;
+    -webkit-transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+    -moz-transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+    -ms-transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+    -o-transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+    transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1); }
+    nav a.active {
+      color: #efefef;
+      background-color: #1a1a1a; }
+    nav a:hover {
+      background-color: #d5d5d5; }
+
+label.link {
+  display: none; }
+  @media print, speech {
+    label.link {
+      display: inline; } }
+
+input.link {
+  display: block;
+  width: 600px;
+  padding: 10px;
+  margin-bottom: 2em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+input.submit {
+  width: 600px;
+  background: #1a1a1a;
+  color: #efefef;
+  font-size: 1.2em;
+  border: none;
+  padding: 10px;
+  margin-top: 2em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+  -moz-transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+  -ms-transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+  -o-transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1);
+  transition: background-color 0.1s cubic-bezier(0.52, 0, 0.48, 1); }
+  input.submit:hover {
+    background: #212121; }
+
+label.captcha {
+  display: block;
+  padding-left: 10px;
+  font-size: 0.9em; }
+
+div.error {
+  background: #ffe9e5;
+  color: #b0120a;
+  padding: 5px;
+  font-size: 0.9em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  div.error p {
+    margin: 0; }
+
+input.error {
+  border: 1px solid #e51c23;
+  background-color: #ffe9e5;
+  color: #b0120a; }
+
+.recaptchatable {
+  width: 600px; }
+
+#recaptcha_response_field {
+  padding: 2px; }
+
+#recaptcha_privacy {
+  font-size: 0.7em; }
+
+.hugelink {
+  max-width: 300px;
+  word-wrap: break-word; }

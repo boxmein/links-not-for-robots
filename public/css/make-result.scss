@@ -1,0 +1,9 @@
+//
+//# sass make-result.scss make-result.css
+
+@import "make";
+
+.hugelink {
+  max-width: 300px;
+  word-wrap: break-word;
+}
