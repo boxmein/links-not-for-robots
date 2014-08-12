@@ -1,4 +1,5 @@
 extends base
+block append main
+  link(rel='stylesheet', href='/css/link.css')
 block main
-  h1 OK!
-  a.hugelink= link
+  a.hugelink(href='#{link}')= link

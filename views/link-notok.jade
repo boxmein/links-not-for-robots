@@ -1,7 +1,13 @@
 extends base
+block append main
+  link(rel='stylesheet', href='/css/link.css')
 block main
   h1 Not so fast!
   p Check out this CAPTCHA first!
   form(method='post')
+    script(type='text/javascript').
+      var RecaptchaOptions = {
+        theme: 'clean'
+      };
     != recaptcha_form
-    input(type='submit', value='get the link')
+    input.submit(type='submit', value='get the link')
